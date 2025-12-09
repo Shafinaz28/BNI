@@ -8,10 +8,12 @@
     <title>BNI AURA | The World's Leading Referral Network</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
     
     <script src="https://unpkg.com/feather-icons"></script>
 
@@ -25,11 +27,11 @@
             --bni-red-dark: #A51A27;
             /* Calculated Darker Red (approx. 20% darker than #CF2030) */
             /* New Gray Scale */
-            --bni-light-gray: #C8C8C8; 
+            --bni-light-gray: #C8C8C8;
             /* New Light Gray */
-            --bni-dark-gray: #64666A; 
+            --bni-dark-gray: #64666A;
             /* New Dark Text/Neutral Gray */
-            
+
             /* BNI Stat Colors (Kept original stat colors for visual contrast in the section) */
             --stat-member-color: #5cb85c;
             /* Green - Used for Members & Cities for contrast */
@@ -43,8 +45,9 @@
         /* --- Global Colors and Font Adjustments --- */
         body {
             /* Changed from bg-gray-50 to a lighter shade for consistency */
-            background-color: #f9fafb; 
-            color: #1f2937; /* Default text color (Tailwind gray-900 equivalent) */
+            background-color: #f9fafb;
+            color: #1f2937;
+            /* Default text color (Tailwind gray-900 equivalent) */
         }
 
         .font-display {
@@ -86,7 +89,7 @@
         .dropdown:hover .dropdown-menu {
             display: block;
         }
-        
+
         /* --- Hero Slider Styles (FIXED FOR 3 SLIDES) --- */
         #hero-slider {
             /* Full height minus header height */
@@ -268,7 +271,7 @@
             /* Override Swiper's inline height calculation */
         }
 
-        .swiper-slide > div {
+        .swiper-slide>div {
             height: 100%;
             /* Ensure the inner card takes the full auto height of the slide */
         }
@@ -276,6 +279,7 @@
         .min-h-\[6rem\] {
             min-height: 6rem;
         }
+
         /* 🔑 END TESTIMONIAL ALIGNMENT FIX */
 
         /* --- START MOBILE IMAGE FIX FOR CONTENT SECTION (MODIFIED FOR CONTAIN) --- */
@@ -303,6 +307,7 @@
                 background-color: #f7f7f7;
             }
         }
+
         /* --- END MOBILE IMAGE FIX FOR CONTENT SECTION --- */
 
 
@@ -435,7 +440,7 @@
         .networking-text {
             /* Changed to use new dark gray variable */
             text-align: center;
-            color: var(--bni-dark-gray); 
+            color: var(--bni-dark-gray);
             max-width: 800px;
             margin: 0 auto 2rem;
             font-size: 1.125rem;
@@ -443,7 +448,8 @@
         }
 
         .global-org-title {
-            color: #000000; /* Used Hex #000000 as per request for a very dark title */
+            color: #000000;
+            /* Used Hex #000000 as per request for a very dark title */
             text-align: center;
             font-size: 2rem;
             /* Equivalent to text-3xl */
@@ -504,7 +510,7 @@
             font-size: 0.875rem;
             /* Tailwind text-sm */
             /* Changed to use new dark gray variable */
-            color: var(--bni-dark-gray); 
+            color: var(--bni-dark-gray);
             text-transform: uppercase;
             font-weight: 600;
             line-height: 1.3;
@@ -530,7 +536,7 @@
             margin: 2rem auto;
             border: 0;
             /* Updated to use new light gray variable */
-            border-top: 2px solid var(--bni-light-gray); 
+            border-top: 2px solid var(--bni-light-gray);
         }
 
         /* Responsive adjustments */
@@ -553,6 +559,7 @@
                 font-size: 1.75rem;
             }
         }
+
         /* --- END NEW BNI STATS STYLING --- */
     </style>
 </head>
@@ -850,29 +857,35 @@
 
         <section id="bni-stats-full" class="stats-context-section">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                
-                <h2 class="networking-title font-display text-4xl font-bold">Networking is the Foundation for Business Growth</h2>
+
+                <h2 class="networking-title font-display text-4xl font-bold">Networking is the Foundation for Business
+                    Growth</h2>
                 <p class="networking-text text-lg text-gray-700 max-w-4xl mx-auto">
                     Networking has proven to be one of the most effective ways to generate referrals and revenue growth.
                     A significant 82% of Business Owners say that most of their business comes from referrals.
-                    BNI India offers a proven system of referral marketing that helps you grow your local business through a trusted network of like-minded people.
+                    BNI India offers a proven system of referral marketing that helps you grow your local business
+                    through a trusted network of like-minded people.
                 </p>
-                
+
                 <hr class="section-divider">
 
-                <h2 class="global-org-title font-display text-3xl font-bold">The World's Largest Referral Networking Organization</h2>
+                <h2 class="global-org-title font-display text-3xl font-bold">The World's Largest Referral Networking
+                    Organization</h2>
                 <p class="global-text text-gray-700 text-center max-w-4xl mx-auto">
-                    Formed in January 1985, BNI is the largest and most successful business networking organisation in the world. 
-                    It helps SME businesses in 76 countries across more than 11,300+ chapters scale their business over the last 40 years.
+                    Formed in January 1985, BNI is the largest and most successful business networking organisation in
+                    the world.
+                    It helps SME businesses in 76 countries across more than 11,300+ chapters scale their business over
+                    the last 40 years.
                 </p>
 
                 <h3 class="how-it-works-title text-xl font-semibold">How does it work?</h3>
                 <p class="description text-gray-600 text-center max-w-3xl mx-auto">
-                    A BNI Membership provides the right environment, training, and support to build trusted relationships that help grow business. 
+                    A BNI Membership provides the right environment, training, and support to build trusted
+                    relationships that help grow business.
                     Weekly local chapter meetings follow a structured agenda that is proven to maximize referrals.
                 </p>
 
-                
+
             </div>
         </section>
         <section id="teams" class="py-16 bg-gray-100">
@@ -961,7 +974,9 @@
                                     <i class="fa-solid fa-star inline"></i>
                                 </div>
                                 <p class="text-gray-600 mb-6 min-h-[6rem] flex items-center">
-                                    "BNI Aura was the best business decision I've made. The structured, consistent weekly meetings forced me to focus on strategic networking, leading to several high-value, long-term retainers and even global project expansion."
+                                    "BNI Aura was the best business decision I've made. The structured, consistent
+                                    weekly meetings forced me to focus on strategic networking, leading to several
+                                    high-value, long-term retainers and even global project expansion."
                                 </p>
                                 <div class="flex items-center mt-auto">
                                     <img src="https://placehold.co/100x100/A51A27/ffffff?text=AG"
@@ -982,7 +997,9 @@
                                     <i class="fa-solid fa-star inline"></i>
                                 </div>
                                 <p class="text-gray-600 mb-6 min-h-[6rem] flex items-center">
-                                    "The quality of referrals in BNI Aura is exceptional. I've successfully closed multiple high-value property deals since joining, relying on the trusted network for due diligence and reliable client introductions."
+                                    "The quality of referrals in BNI Aura is exceptional. I've successfully closed
+                                    multiple high-value property deals since joining, relying on the trusted network for
+                                    due diligence and reliable client introductions."
                                 </p>
                                 <div class="flex items-center mt-auto">
                                     <img src="https://placehold.co/100x100/CF2030/ffffff?text=TA"
@@ -1003,7 +1020,9 @@
                                     <i class="fa-solid fa-star inline"></i>
                                 </div>
                                 <p class="text-gray-600 mb-6 min-h-[6rem] flex items-center">
-                                    "My insurance advisory business has grown 40% in the last year. BNI's 'Givers Gain' philosophy truly delivers long-term client trust and a steady stream of pre-qualified referrals, transforming my pipeline."
+                                    "My insurance advisory business has grown 40% in the last year. BNI's 'Givers Gain'
+                                    philosophy truly delivers long-term client trust and a steady stream of pre-qualified
+                                    referrals, transforming my pipeline."
                                 </p>
                                 <div class="flex items-center mt-auto">
                                     <img src="https://placehold.co/100x100/A51A27/ffffff?text=BK"
@@ -1024,7 +1043,9 @@
                                     <i class="fa-solid fa-star inline"></i>
                                 </div>
                                 <p class="text-gray-600 mb-6 min-h-[6rem] flex items-center">
-                                    "Before BNI, scaling my projects was difficult. BNI Aura helped me secure trusted referrals for high-end residential interiors and provided invaluable business training that streamlined my project management process."
+                                    "Before BNI, scaling my projects was difficult. BNI Aura helped me secure trusted
+                                    referrals for high-end residential interiors and provided invaluable business
+                                    training that streamlined my project management process."
                                 </p>
                                 <div class="flex items-center mt-auto">
                                     <img src="https://placehold.co/100x100/CF2030/ffffff?text=PN"
@@ -1045,7 +1066,9 @@
                                     <i class="fa-solid fa-star inline"></i>
                                 </div>
                                 <p class="text-gray-600 mb-6 min-h-[6rem] flex items-center">
-                                    "Joining BNI Aura boosted my CA client base massively! The trust built within the chapter means I receive exclusive, complex corporate accounting referrals I wouldn't access through traditional marketing channels."
+                                    "Joining BNI Aura boosted my CA client base massively! The trust built within the
+                                    chapter means I receive exclusive, complex corporate accounting referrals I wouldn't
+                                    access through traditional marketing channels."
                                 </p>
                                 <div class="flex items-center mt-auto">
                                     <img src="https://placehold.co/100x100/A51A27/ffffff?text=SH"
@@ -1066,7 +1089,9 @@
                                     <i class="fa-solid fa-star inline"></i>
                                 </div>
                                 <p class="text-gray-600 mb-6 min-h-[6rem] flex items-center">
-                                    "BNI referrals increased my travel bookings dramatically, especially for corporate and high-end family trips. The weekly education modules also helped me refine my sales pitch and close more efficiently."
+                                    "BNI referrals increased my travel bookings dramatically, especially for corporate
+                                    and high-end family trips. The weekly education modules also helped me refine my
+                                    sales pitch and close more efficiently."
                                 </p>
                                 <div class="flex items-center mt-auto">
                                     <img src="https://placehold.co/100x100/CF2030/ffffff?text=GN"
@@ -1074,48 +1099,6 @@
                                     <div>
                                         <h4 class="font-bold">Gagan Nischal</h4>
                                         <p class="text-sm text-gray-500">Tours & Travels</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="bg-white p-8 rounded-xl shadow-md h-full flex flex-col">
-                                <div class="text-bni-red mb-4">
-                                    <i class="fa-solid fa-star inline"></i><i class="fa-solid fa-star inline"></i>
-                                    <i class="fa-solid fa-star inline"></i><i class="fa-solid fa-star inline"></i>
-                                    <i class="fa-solid fa-star inline"></i>
-                                </div>
-                                <p class="text-gray-600 mb-6 min-h-[6rem] flex items-center">
-                                    "BNI Aura connected me directly with premium home loan clients, thanks to referrals from architects and real estate professionals in the chapter. This synergistic collaboration has ensured stable, high-volume transactions."
-                                </p>
-                                <div class="flex items-center mt-auto">
-                                    <img src="https://placehold.co/100x100/A51A27/ffffff?text=KK"
-                                        class="testimonial-avatar rounded-full mr-4" alt="Keerthi Kumar C N avatar">
-                                    <div>
-                                        <h4 class="font-bold">Keerthi Kumar C N</h4>
-                                        <p class="text-sm text-gray-500">Home Loans Specialist</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="bg-white p-8 rounded-xl shadow-md h-full flex flex-col">
-                                <div class="text-bni-red mb-4">
-                                    <i class="fa-solid fa-star inline"></i><i class="fa-solid fa-star inline"></i>
-                                    <i class="fa-solid fa-star inline"></i><i class="fa-solid fa-star inline"></i>
-                                    <i class="fa-solid fa-star inline"></i>
-                                </div>
-                                <p class="text-gray-600 mb-6 min-h-[6rem] flex items-center">
-                                    "The primary benefit of BNI is access to high-quality architectural clients who respect professional pricing. The structured platform and training gave me the confidence to pitch and secure larger, more profitable projects."
-                                </p>
-                                <div class="flex items-center mt-auto">
-                                    <img src="https://placehold.co/100x100/CF2030/ffffff?text=AJ"
-                                        class="testimonial-avatar rounded-full mr-4" alt="Achyut Joshi avatar">
-                                    <div>
-                                        <h4 class="font-bold">Achyut Joshi</h4>
-                                        <p class="text-sm text-gray-500">Architect</p>
                                     </div>
                                 </div>
                             </div>
@@ -1133,7 +1116,6 @@
                     Meet the <span class="text-bni-red">AURA Leadership</span> Team
                 </h2>
 
-                
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
 
@@ -1160,8 +1142,7 @@
                     <div class="text-center bg-white p-6 rounded-lg transform transition duration-300">
                         <div style="background-color: var(--bni-light-gray);"
                             class="mx-auto mb-4 w-52 h-52 md:w-40 md:h-40 rounded-lg overflow-hidden flex items-center justify-center">
-                            <img src="/images/SagarDhongady.jpg" alt="Ar Sagar Dhongady"
-                                class="object-cover w-full h-full"
+                            <img src="/images/SagarDhongady.jpg" alt="Ar Sagar Dhongady" class="object-cover w-full h-full"
                                 onerror="this.onerror=null; this.src='https://placehold.co/160x160/C8C8C8/000000?text=Sagar+D'" />
                         </div>
                         <p class="font-bold text-xl text-gray-900 mt-2">Ar Sagar Dhongady</p>
@@ -1215,23 +1196,28 @@
             <p class="text-sm text-gray-600 mb-4">Hi! Please leave your details and our team will connect with you
                 shortly.</p>
 
-            <form action="#" method="POST" class="space-y-4">
+            <form id="chatForm" action="#" method="POST" class="space-y-4">
                 <div>
-                    <input type="text" placeholder="Name*"
+                    <input type="text" placeholder="Name*" name="Name"
                         class="w-full p-3 border border-gray-300 rounded-lg focus:border-bni-red focus:ring-bni-red"
                         required>
                 </div>
                 <div>
-                    <input type="email" placeholder="Email*"
+                    <input type="email" placeholder="Email*" name="Email"
                         class="w-full p-3 border border-gray-300 rounded-lg focus:border-bni-red focus:ring-bni-red"
                         required>
                 </div>
-                <button type="submit"
+                <div>
+                    <input type="phonenumber" placeholder="PhoneNumber*" name="PhoneNumber"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:border-bni-red focus:ring-bni-red"
+                        required>
+                </div>
+                
+                <button type="submit" id="submitBtn"
                     class="w-full bg-bni-red text-white font-bold py-3 rounded-lg hover:bg-red-700 transition duration-300">
                     Send
                 </button>
             </form>
-
             <p class="text-xs text-center text-gray-400 mt-4">
                 This site is protected by reCAPTCHA and the Google <a href="#"
                     class="hover:text-bni-red underline">Privacy Policy</a> and <a href="#"
@@ -1242,186 +1228,300 @@
 
 
     <footer class="bg-[#000000] py-12 text-gray-400">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 border-b border-gray-700 pb-8 mb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 border-b border-gray-700 pb-8 mb-8">
 
-            <div>
-                <div class="flex items-center space-x-2 mb-4">
-                    <img src="./images/BNI.jpg" alt="BNI AURA Logo" class="h-8 w-auto object-contain"
-                        onerror="this.onerror=null; this.src='https://placehold.co/120x30/CF2030/ffffff?text=BNI+AURA+Logo'">
-                </div>
-                <p class="text-sm">
-                    Unlock new opportunities, forge valuable partnerships, and drive your business forward with BNI
-                    AURA.
-                </p>
-                <p class="text-xs mt-1 text-red-400 font-semibold">
-                    We believe in Givers Gain®.
-                </p>
-            </div>
-
-            <div>
-                <h4 class="text-lg font-semibold text-white mb-4 border-b border-bni-red pb-1">Quick Links</h4>
-                <nav class="space-y-2 text-sm">
-                    <a href="index.html" class="block hover:text-red-400 transition">Home</a>
-                    <a href="about.html" class="block hover:text-red-400 transition">About Us</a>
-                    <a href="categories.html" class="block hover:text-red-400 transition">Categories</a>
-                    <a href="invite.html" class="block hover:text-red-400 transition">Get Invited</a>
-                    <a href="join.html" class="block hover:text-red-400 transition">Join Us</a>
-                </nav>
-            </div>
-
-            <div>
-                <h4 class="text-lg font-semibold text-white mb-4 border-b border-bni-red pb-1">Contact</h4>
-                <div class="space-y-2 text-sm">
-                    <p class="flex items-start space-x-2">
-                        <svg class="w-5 h-5 mt-1 text-red-500 flex-shrink-0" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
-                            </path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        </svg>
-                        <span>
-                            BNI AURA Chapter Office,<br>
-                            123 Referral Blvd, Suite 400,<br>
-                            Business City, CA 90210
-                        </span>
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <img src="./images/BNI.jpg" alt="BNI AURA Logo" class="h-8 w-auto object-contain"
+                            onerror="this.onerror=null; this.src='https://placehold.co/120x30/CF2030/ffffff?text=BNI+AURA+Logo'">
+                    </div>
+                    <p class="text-sm">
+                        Unlock new opportunities, forge valuable partnerships, and drive your business forward with BNI
+                        AURA.
                     </p>
-                    <a href="mailto:bniaurablr@gmail.com"
-                        class="flex items-center space-x-2 hover:text-red-400 transition">
-                        <svg class="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
-                            </path>
-                        </svg>
-                        <span>bniaurablr@gmail.com</span>
-                    </a>
+                    <p class="text-xs mt-1 text-red-400 font-semibold">
+                        We believe in Givers Gain®.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4 border-b border-bni-red pb-1">Quick Links</h4>
+                    <nav class="space-y-2 text-sm">
+                        <a href="index.html" class="block hover:text-red-400 transition">Home</a>
+                        <a href="about.html" class="block hover:text-red-400 transition">About Us</a>
+                        <a href="categories.html" class="block hover:text-red-400 transition">Categories</a>
+                        <a href="invite.html" class="block hover:text-red-400 transition">Get Invited</a>
+                        <a href="join.html" class="block hover:text-red-400 transition">Join Us</a>
+                    </nav>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4 border-b border-bni-red pb-1">Contact</h4>
+                    <div class="space-y-2 text-sm">
+                        <p class="flex items-start space-x-2">
+                            <svg class="w-5 h-5 mt-1 text-red-500 flex-shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <span>
+                                BNI AURA Chapter Office,<br>
+                                123 Referral Blvd, Suite 400,<br>
+                                Business City, CA 90210
+                            </span>
+                        </p>
+                        <a href="mailto:bniaurablr@gmail.com"
+                            class="flex items-center space-x-2 hover:text-red-400 transition">
+                            <svg class="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                            <span>bniaurablr@gmail.com</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4 border-b border-bni-red pb-1">Connect</h4>
+                    <div class="flex space-x-4">
+
+                        <a href="https://www.instagram.com/bniaura/?igsh=MWU0N3U0bnlyMnUzcA%3D%3D#" target="_blank"
+                            class="border-2 border-bni-red w-8 h-8 rounded-full flex items-center justify-center transition hover:bg-bni-red group"
+                            title="Instagram">
+                            <svg class="w-5 h-5 fill-current text-bni-red group-hover:text-white" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.773 1.58 4.92 4.85.058 1.265.07 1.645.07 4.85s-.012 3.584-.07 4.85c-.147 3.27-1.678 4.773-4.92 4.92-1.266.058-1.645.07-4.85.07s-3.584-.012-4.85-.07c-3.27-.147-4.773-1.678-4.92-4.92-.058-1.265-.07-1.645-.07-4.85s.012-3.584.07-4.85c.147-3.27 1.678-4.773 4.92-4.92 1.265-.058 1.645-.07 4.85-.07zm0-2.163C8.715 0 8.358.012 7.1.07 3.655.22 1.3 2.64 1.15 6.1c-.058 1.265-.07 1.645-.07 4.85s.012 3.584.07 4.85c.15 3.45 2.57 5.869 6.1 6.019 1.265.058 1.645.07 4.85.07s3.584-.012 4.85-.07c3.45-.15 5.869-2.57 6.019-6.1.058-1.265.07-1.645.07-4.85s-.012-3.584-.07-4.85c-.15-3.45-2.57-5.869-6.1-6.019-1.265-.058-1.645-.07-4.85-.07zm0 6a4.5 4.5 0 100 9 4.5 4.5 0 000-9zm0 2a2.5 2.5 0 110 5 2.5 2.5 0 010-5zm5.5-2.75a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z" />
+                            </svg>
+                        </a>
+
+                        <a href="https://www.facebook.com/profile.php?id=61584641733092" target="_blank"
+                            class="border-2 border-bni-red w-8 h-8 rounded-full flex items-center justify-center transition hover:bg-bni-red group"
+                            title="Facebook">
+                            <svg class="w-5 h-5 fill-current text-bni-red group-hover:text-white" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path
+                                    d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-1.5 1.5-1.5h1.5V4h-2c-2.73 0-3.5 1.83-3.5 3.5v2H10v4h4v7h4v-7h2.5l1-4H18V9.5c0-1.03-.77-2.5-3-2.5h-1V4h-2v3.5h-1V10h-2v3.5H9V21h4v-7.5z" />
+                            </svg>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/bni-aura-75a52b393/" target="_blank"
+                            class="border-2 border-bni-red w-8 h-8 rounded-full flex items-center justify-center transition hover:bg-bni-red group"
+                            title="LinkedIn">
+                            <svg class="w-5 h-5 fill-current text-bni-red group-hover:text-white" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.366-4-3.297-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.355 7 3.013v6.222z" />
+                            </svg>
+                        </a>
+
+                        <a href="https://www.youtube.com/@BNIAuraBangalore" target="_blank"
+                            class="border-2 border-bni-red w-8 h-8 rounded-full flex items-center justify-center transition hover:bg-bni-red group"
+                            title="YouTube">
+                            <svg class="w-5 h-5 fill-current text-bni-red group-hover:text-white" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path
+                                    d="M19.615 3.184c-3.791-.79-7.234-1.056-10.43-.888-2.617.135-4.463.328-5.748.773-1.018.35-1.748 1.055-2.072 2.102-.338 1.082-.507 2.65-.507 4.757v2.545c0 2.107.17 3.675.507 4.757.324 1.047 1.054 1.752 2.072 2.102 1.285.445 3.131.638 5.748.773 3.196.168 6.639-.098 10.43-.888 3.328-.696 4.605-1.85 4.93-4.571.18-.755.27-1.785.27-3.086v-2.545c0-1.3-.09-2.33-.27-3.086-.325-2.72-1.602-3.875-4.93-4.571zm-9.332 10.976v-5.321l4.789 2.66-4.789 2.661z" />
+                            </svg>
+                        </a>
+
+                    </div>
                 </div>
             </div>
 
-            <div>
-                <h4 class="text-lg font-semibold text-white mb-4 border-b border-bni-red pb-1">Connect</h4>
-                <div class="flex space-x-4">
-
-                    <a href="https://www.instagram.com/bniaura/?igsh=MWU0N3U0bnlyMnUzcA%3D%3D#" target="_blank"
-                        class="border-2 border-bni-red w-8 h-8 rounded-full flex items-center justify-center transition hover:bg-bni-red group" title="Instagram">
-                        <svg class="w-5 h-5 fill-current text-bni-red group-hover:text-white" viewBox="0 0 24 24" aria-hidden="true">
-                            <path
-                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.773 1.58 4.92 4.85.058 1.265.07 1.645.07 4.85s-.012 3.584-.07 4.85c-.147 3.27-1.678 4.773-4.92 4.92-1.266.058-1.645.07-4.85.07s-3.584-.012-4.85-.07c-3.27-.147-4.773-1.678-4.92-4.92-.058-1.265-.07-1.645-.07-4.85s.012-3.584.07-4.85c.147-3.27 1.678-4.773 4.92-4.92 1.265-.058 1.645-.07 4.85-.07zm0-2.163C8.715 0 8.358.012 7.1.07 3.655.22 1.3 2.64 1.15 6.1c-.058 1.265-.07 1.645-.07 4.85s.012 3.584.07 4.85c.15 3.45 2.57 5.869 6.1 6.019 1.265.058 1.645.07 4.85.07s3.584-.012 4.85-.07c3.45-.15 5.869-2.57 6.019-6.1.058-1.265.07-1.645.07-4.85s-.012-3.584-.07-4.85c-.15-3.45-2.57-5.869-6.1-6.019-1.265-.058-1.645-.07-4.85-.07zm0 6a4.5 4.5 0 100 9 4.5 4.5 0 000-9zm0 2a2.5 2.5 0 110 5 2.5 2.5 0 010-5zm5.5-2.75a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z" />
-                        </svg>
-                    </a>
-
-                    <a href="https://www.facebook.com/profile.php?id=61584641733092" target="_blank"
-                        class="border-2 border-bni-red w-8 h-8 rounded-full flex items-center justify-center transition hover:bg-bni-red group" title="Facebook">
-                        <svg class="w-5 h-5 fill-current text-bni-red group-hover:text-white" viewBox="0 0 24 24" aria-hidden="true">
-                            <path
-                                d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-1.5 1.5-1.5h1.5V4h-2c-2.73 0-3.5 1.83-3.5 3.5v2H10v4h4v7h4v-7h2.5l1-4H18V9.5c0-1.03-.77-2.5-3-2.5h-1V4h-2v3.5h-1V10h-2v3.5H9V21h4v-7.5z" />
-                        </svg>
-                    </a>
-
-                    <a href="https://www.linkedin.com/in/bni-aura-75a52b393/" target="_blank"
-                        class="border-2 border-bni-red w-8 h-8 rounded-full flex items-center justify-center transition hover:bg-bni-red group" title="LinkedIn">
-                        <svg class="w-5 h-5 fill-current text-bni-red group-hover:text-white" viewBox="0 0 24 24" aria-hidden="true">
-                            <path
-                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.366-4-3.297-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.355 7 3.013v6.222z" />
-                        </svg>
-                    </a>
-
-                    <a href="https://www.youtube.com/@BNIAuraBangalore" target="_blank"
-                        class="border-2 border-bni-red w-8 h-8 rounded-full flex items-center justify-center transition hover:bg-bni-red group" title="YouTube">
-                        <svg class="w-5 h-5 fill-current text-bni-red group-hover:text-white" viewBox="0 0 24 24" aria-hidden="true">
-                            <path
-                                d="M19.615 3.184c-3.791-.79-7.234-1.056-10.43-.888-2.617.135-4.463.328-5.748.773-1.018.35-1.748 1.055-2.072 2.102-.338 1.082-.507 2.65-.507 4.757v2.545c0 2.107.17 3.675.507 4.757.324 1.047 1.054 1.752 2.072 2.102 1.285.445 3.131.638 5.748.773 3.196.168 6.639-.098 10.43-.888 3.328-.696 4.605-1.85 4.93-4.571.18-.755.27-1.785.27-3.086v-2.545c0-1.3-.09-2.33-.27-3.086-.325-2.72-1.602-3.875-4.93-4.571zm-9.332 10.976v-5.321l4.789 2.66-4.789 2.661z" />
-                        </svg>
-                    </a>
-
-                </div>
+            <div class="text-center text-sm">
+                <p>Copyright &copy; 2025 BNI AURA All Rights Reserved.</p>
             </div>
         </div>
-
-        <div class="text-center text-sm">
-            <p>Copyright &copy; 2025 BNI AURA All Rights Reserved.</p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // --- Feather Icons Initialization ---
+
+            // --- Core Setup ---
             if (typeof feather !== 'undefined') {
                 feather.replace();
             }
 
-            // --- Swiper Initialization JS ---
-            // Ensure Swiper is initialized correctly for the testimonial section
+            // 🔑 IMPORTANT: Paste your deployed Google Apps Script URL here.
+            // I've used the URL from your previous code as the default.
+            const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz5pHjp-Z5vX1qdmNBeMTzN2g9N8qDbNijn0zwJKlJpVDOHIST_eaorLWhYLrW573vo/exec';
+
+            // 1. CHAT MODAL & FORM LOGIC
+            const chatModal = document.getElementById("chat-modal");
+            const chatBtn = document.getElementById("floating-chat-btn");
+            const closeChatBtn = document.getElementById("close-chat-btn");
+            const chatForm = document.getElementById('chatForm'); // Uses the ID added to the form
+            const modalContainer = chatModal ? chatModal.querySelector('.chat-modal-container') : null;
+
+
+            // Modal Open/Close Handler
+            function toggleModal() {
+                if (!chatModal || !modalContainer) return;
+                const isHidden = chatModal.classList.contains("hidden");
+
+                if (isHidden) {
+                    chatModal.classList.remove("hidden");
+                    setTimeout(() => {
+                        modalContainer.classList.add("active");
+                    }, 10);
+                } else {
+                    modalContainer.classList.remove("active");
+                    setTimeout(() => {
+                        chatModal.classList.add("hidden");
+                    }, 300);
+                    if (chatForm) {
+                        chatForm.reset();
+                    }
+                }
+            }
+
+            // AJAX Form Submission Handler (with SweetAlert2)
+            function handleFormSubmission(e) {
+                e.preventDefault();
+
+                if (!chatForm) return;
+
+                const formData = new FormData(chatForm);
+                const submitBtn = document.getElementById('submitBtn'); 
+                
+
+                
+                // Close the visual chat box immediately, open SweetAlert loading dialog
+                toggleModal();
+
+                // 1. Show Loading Alert (SweetAlert2)
+                Swal.fire({
+                    title: 'Sending Inquiry...',
+                    text: 'Please wait while we process your request.',
+                    icon: 'info',
+                    showConfirmButton: false,
+                    allowOutsideClick: false,
+                    didOpen: () => {
+                        Swal.showLoading();
+                    }
+                });
+
+                // Set button state in the background for robustness
+                submitBtn.textContent = 'Sending...';
+                submitBtn.disabled = true;
+
+                // 2. Send Data to Google Apps Script URL
+                fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', 
+                    body: formData
+                })
+                .then(() => {
+                    // 3. Show Success Alert (SweetAlert2)
+                    Swal.fire({
+                        title: 'Success!',
+                        html: 'Thank you for your interest. <br>Our BNI team will contact you shortly.',
+                        icon: 'success',
+                        confirmButtonText: 'Got It!',
+                        confirmButtonColor: '#CF2030'
+                    });
+                })
+                .catch(error => {
+                    // 3. Show Error Alert (SweetAlert2)
+                    console.error('Submission Error:', error);
+                    Swal.fire({
+                        title: 'Submission Failed',
+                        text: 'There was an issue connecting to the server. Please try again.',
+                        icon: 'error',
+                        confirmButtonText: 'Close',
+                        confirmButtonColor: '#CF2030'
+                    });
+                })
+                .finally(() => {
+                    // Reset button state regardless of success/failure
+                    submitBtn.textContent = 'Send';
+                    submitBtn.disabled = false;
+                });
+            }
+
+            // Attach Modal Event Listeners
+            if (chatBtn) chatBtn.addEventListener("click", toggleModal);
+            if (closeChatBtn) closeChatBtn.addEventListener("click", toggleModal);
+            if (chatModal) chatModal.addEventListener("click", (e) => {
+                if (e.target.classList.contains('modal-overlay')) {
+                    toggleModal();
+                }
+            });
+
+            // Attach Form Submission Listener
+            if (chatForm) chatForm.addEventListener('submit', handleFormSubmission);
+
+
+            // 2. SWIPER INITIALIZATION (Testimonials)
             if (typeof Swiper !== 'undefined') {
                 var swiper = new Swiper(".mySwiper", {
                     slidesPerView: 3,
                     spaceBetween: 30,
                     loop: true,
-                    // FIX: autoHeight should handle the vertical alignment issue correctly.
-                    autoHeight: true,  
+                    autoHeight: true,
                     autoplay: {
-                        delay: 3500, // Increased delay slightly for readability
+                        delay: 3500,
                         disableOnInteraction: false,
                     },
                     breakpoints: {
-                        // Mobile (320px) and Tablet (640px)
-                        320: { slidesPerView: 1, spaceBetween: 15 },
-                        640: { slidesPerView: 1, spaceBetween: 20 },
-                        // Medium screens
-                        768: { slidesPerView: 2, spaceBetween: 30 },
-                        // Desktop
-                        1024: { slidesPerView: 3, spaceBetween: 30 }
+                        320: {
+                            slidesPerView: 1,
+                            spaceBetween: 15
+                        },
+                        640: {
+                            slidesPerView: 1,
+                            spaceBetween: 20
+                        },
+                        768: {
+                            slidesPerView: 2,
+                            spaceBetween: 30
+                        },
+                        1024: {
+                            slidesPerView: 3,
+                            spaceBetween: 30
+                        }
                     }
                 });
             }
 
 
-            // --- Mobile Menu Toggle JS ---
+            // 3. MOBILE MENU & ACCORDION LOGIC
             const menuBtn = document.getElementById("menuBtn");
             const mobileMenu = document.getElementById("mobileMenu");
-            const mobileMenuButton = document.getElementById('mobileMenuButton'); // Hamburger Icon
-
-            // Corrected ID for mobile sub-categories used in closing logic
+            const mobileMenuButton = document.getElementById('mobileMenuButton');
+            const categoryToggle = document.getElementById('categoryToggle');
             const mobileSubCategories = document.getElementById('mobileSubCategories');
-            const toggleIcon = document.getElementById('toggleIcon'); // Arrow icon
+            const toggleIcon = document.getElementById('toggleIcon');
 
-            // Helper function to update the hamburger icon based on menu state
             function updateMobileMenuIcon(isOpen) {
                 if (mobileMenuButton) {
-                    if (isOpen) {
-                        // X Icon
-                        mobileMenuButton.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
-                    } else {
-                        // Hamburger Icon
-                        mobileMenuButton.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
-                    }
+                    mobileMenuButton.innerHTML = isOpen ?
+                        '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>' :
+                        '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
                 }
             }
 
-            menuBtn.addEventListener("click", () => {
+            if (menuBtn) menuBtn.addEventListener("click", () => {
                 const isHidden = mobileMenu.classList.contains("hidden");
                 mobileMenu.classList.toggle("hidden");
                 updateMobileMenuIcon(isHidden);
             });
 
-            // --- Mobile Categories Accordion Toggle JS ---
-            const categoryToggle = document.getElementById('categoryToggle'); // This is the button now
-
             if (categoryToggle && mobileSubCategories && toggleIcon) {
                 categoryToggle.addEventListener('click', (e) => {
-                    // Stop navigation only if the submenu is open or closed, but still allow navigation to categories.html
                     e.preventDefault();
-
                     const isCategoriesHidden = mobileSubCategories.classList.contains('hidden');
                     mobileSubCategories.classList.toggle('hidden');
-
                     if (isCategoriesHidden) {
                         toggleIcon.classList.add('rotate-90');
                     } else {
@@ -1430,126 +1530,18 @@
                 });
             }
 
-            // --- Close mobile menu on clicking any link ---
-            const mobileLinks = mobileMenu.querySelectorAll('a');
+            const mobileLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
             mobileLinks.forEach(link => {
                 link.addEventListener('click', () => {
-                    // Check if the clicked link is not inside the Categories section header div
-                    if (!link.closest('.flex.justify-between')) {
-                        // Reset category menu state when main menu closes
-                        if (mobileSubCategories) {
-                            mobileSubCategories.classList.add('hidden');
-                        }
-                        if (toggleIcon) {
-                            toggleIcon.classList.remove('rotate-90');
-                        }
+                    if (!link.closest('.flex.justify-between') && mobileMenu) {
+                        if (mobileSubCategories) mobileSubCategories.classList.add('hidden');
+                        if (toggleIcon) toggleIcon.classList.remove('rotate-90');
                         mobileMenu.classList.add('hidden');
-                        updateMobileMenuIcon(false); // Reset icon to hamburger
+                        updateMobileMenuIcon(false);
                     }
                 });
             });
 
-
-            // --- Hero Slider JS (Auto-slide and Dot control logic) ---
-            const slideTrack = document.getElementById('slide-track');
-            const dotsContainer = document.getElementById('slider-dots');
-            const slides = slideTrack ? slideTrack.querySelectorAll('.slide') : [];
-            const dots = dotsContainer ? dotsContainer.querySelectorAll('.dot') : [];
-            let currentSlide = 0;
-            const totalSlides = slides.length;
-
-            if (slideTrack && totalSlides > 0) {
-
-                const slideWidthPercentage = 100 / totalSlides;
-                const slideInterval = 5000; // 5 seconds
-                let autoSlideTimer;
-
-                function moveToSlide(index) {
-                    if (index < 0) {
-                        index = totalSlides - 1; // Loop back to the last slide
-                    } else if (index >= totalSlides) {
-                        index = 0; // Loop back to the first slide
-                    }
-
-                    const offset = -index * slideWidthPercentage;
-                    slideTrack.style.transform = `translateX(${offset}%)`;
-
-                    // Update dots
-                    dots.forEach((dot, dotIndex) => {
-                        dot.classList.remove('active');
-                        if (dotIndex === index) {
-                            dot.classList.add('active');
-                        }
-                    });
-
-                    currentSlide = index;
-                }
-
-                // Function to reset the timer (for manual dot clicks)
-                function resetAutoSlide() {
-                    clearInterval(autoSlideTimer);
-                    autoSlideTimer = setInterval(() => {
-                        moveToSlide(currentSlide + 1);
-                    }, slideInterval);
-                }
-
-                // Initialize auto-slide
-                resetAutoSlide();
-
-                // Event listeners for dots (manual navigation)
-                dots.forEach(dot => {
-                    dot.addEventListener('click', (e) => {
-                        const slideIndex = parseInt(e.target.getAttribute('data-slide'));
-                        moveToSlide(slideIndex);
-                        resetAutoSlide(); // Reset interval when user clicks a dot
-                    });
-                });
-            }
-            // --- End Hero Slider JS ---
-
-
-            // --- Floating Chat/Modal JS (Global) ---
-            const chatBtn = document.getElementById("floating-chat-btn");
-            const chatModal = document.getElementById("chat-modal");
-            const closeChatBtn = document.getElementById("close-chat-btn");
-
-            if (chatModal) {
-                const modalContainer = chatModal.querySelector('.chat-modal-container');
-
-                const toggleModal = () => {
-                    const isHidden = chatModal.classList.contains("hidden");
-
-                    if (isHidden) {
-                        chatModal.classList.remove("hidden");
-                        setTimeout(() => {
-                            modalContainer.classList.add("active");
-                        }, 10);
-                    } else {
-                        modalContainer.classList.remove("active");
-                        setTimeout(() => {
-                            chatModal.classList.add("hidden");
-                        }, 300); // Wait for transition
-                        // Reset form fields on close
-                        const form = chatModal.querySelector('form');
-                        if (form) {
-                            form.reset();
-                        }
-                    }
-                };
-
-                if (chatBtn) {
-                    chatBtn.addEventListener("click", toggleModal);
-                }
-                if (closeChatBtn) {
-                    closeChatBtn.addEventListener("click", toggleModal);
-                }
-
-                chatModal.addEventListener("click", (e) => {
-                    if (e.target.classList.contains('modal-overlay')) {
-                        toggleModal();
-                    }
-                });
-            }
         });
     </script>
 </body>

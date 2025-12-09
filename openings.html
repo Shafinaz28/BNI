@@ -7,6 +7,10 @@
     <title>BNI AURA | Exclusive Business Showcase</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <script src="https://unpkg.com/feather-icons"></script>
     <style>
         /* Custom styles for BNI theme (UPDATED) */
         :root {
@@ -119,44 +123,39 @@
 
         #chat-modal {
             position: fixed;
-            top: 0;
-            left: 0;
+            bottom: 6rem;
+            right: 1.5rem;
             width: 100%;
-            height: 100%;
-            display: none;
-            z-index: 999;
+            max-width: 20rem;
+            z-index: 1000;
         }
 
         .modal-overlay {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            /* background: rgba(0, 0, 0, 0.6); */
+            z-index: 900;
         }
 
         .chat-modal-container {
             position: fixed;
-            bottom: 100px;
-            right: 2rem;
-            max-width: 90%;
-            width: 350px;
+            bottom: 6rem;
+            right: 1.5rem;
+            left: auto;
+            width: 90%;
+            max-width: 350px;
             z-index: 1000;
-            transform-origin: bottom right;
-            animation: fadeIn 0.3s ease-out;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.95)
-            }
-
-            to {
-                opacity: 1;
-                transform: scale(1)
-            }
+        .chat-modal-container.active {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Hide modal in JS, but ensure it's positioned for display */
@@ -184,7 +183,6 @@
                 /* Ensure it starts hidden */
             }
         }
-
         /* ************************************** */
     </style>
 </head>
@@ -333,7 +331,7 @@
 
                 <div class="showcase-grid">
 
-                    <div class="dynamic-card-wrapper">
+                    <div class="dynamic-card-wrapper" data-profession="Glass Materials">
                         <img src="./openings imgs/close-up-metallic-structure-against-wall.jpg" alt="Glass Materials"
                             class="card-image-square"
                             onerror="this.onerror=null; this.src='https://placehold.co/400x150/f7e6e8/CF2030?text=Glass+Materials'">
@@ -349,7 +347,7 @@
                         </div>
                     </div>
 
-                    <div class="dynamic-card-wrapper">
+                    <div class="dynamic-card-wrapper" data-profession="Gifting Business">
                         <img src="./openings imgs/moments-preparation-christmas.jpg" alt="Gifting Business"
                             class="card-image-square"
                             onerror="this.onerror=null; this.src='https://placehold.co/400x150/f7e6e8/CF2030?text=Gifting+Business'">
@@ -365,7 +363,7 @@
                         </div>
                     </div>
 
-                    <div class="dynamic-card-wrapper">
+                    <div class="dynamic-card-wrapper" data-profession="Land Surveying">
                         <img src="./openings imgs/surveyor-using-total-station-measure-land-levels-ai-image.jpg"
                             alt="Land Surveying" class="card-image-square"
                             onerror="this.onerror=null; this.src='https://placehold.co/400x150/f7e6e8/CF2030?text=Land+Surveying'">
@@ -381,7 +379,7 @@
                         </div>
                     </div>
 
-                    <div class="dynamic-card-wrapper">
+                    <div class="dynamic-card-wrapper" data-profession="Boutique Owner">
                         <img src="./openings imgs/boutiqe.jpg" alt="Boutique Owner" class="card-image-square"
                             onerror="this.onerror=null; this.src='https://placehold.co/400x150/f7e6e8/CF2030?text=Boutique+Owner'">
                         <div class="card-text-content">
@@ -396,7 +394,7 @@
                         </div>
                     </div>
 
-                    <div class="dynamic-card-wrapper">
+                    <div class="dynamic-card-wrapper" data-profession="CCTV Solutions">
                         <img src="./openings imgs/cctv.jpg" alt="CCTV Solutions" class="card-image-square"
                             onerror="this.onerror=null; this.src='https://placehold.co/400x150/f7e6e8/CF2030?text=CCTV+Solutions'">
                         <div class="card-text-content">
@@ -411,7 +409,7 @@
                         </div>
                     </div>
 
-                    <div class="dynamic-card-wrapper">
+                    <div class="dynamic-card-wrapper" data-profession="Tiles & Sanitary">
                         <img src="./openings imgs/interior-modern-stylish-bathroom-with-black-tiled-walls-curtain-shower-place-wooden-furniture-with-wash.jpg"
                             alt="Tiles & Sanitary" class="card-image-square"
                             onerror="this.onerror=null; this.src='https://placehold.co/400x150/f7e6e8/CF2030?text=Tiles+Sanitary'">
@@ -427,7 +425,7 @@
                         </div>
                     </div>
 
-                    <div class="dynamic-card-wrapper">
+                    <div class="dynamic-card-wrapper" data-profession="Building Materials">
                         <img src="./openings imgs/pile-new-bricks-construction-site-concept-repair-building-materials.jpg"
                             alt="Building Materials" class="card-image-square"
                             onerror="this.onerror=null; this.src='https://placehold.co/400x150/f7e6e8/CF2030?text=Building+Materials'">
@@ -443,7 +441,7 @@
                         </div>
                     </div>
 
-                    <div class="dynamic-card-wrapper">
+                    <div class="dynamic-card-wrapper" data-profession="Bakery Business">
                         <img src="./openings imgs/young-handsome-man-isolated-wall-holding-mini-cakes.jpg"
                             alt="Bakery Business" class="card-image-square"
                             onerror="this.onerror=null; this.src='https://placehold.co/400x150/f7e6e8/CF2030?text=Bakery+Business'">
@@ -459,7 +457,7 @@
                         </div>
                     </div>
 
-                    <div class="dynamic-card-wrapper">
+                    <div class="dynamic-card-wrapper" data-profession="Pharmacy Business">
                         <img src="./openings imgs/shelves-with-medicines-pharmacy.jpg" alt="Pharmacy Business"
                             class="card-image-square"
                             onerror="this.onerror=null; this.src='https://placehold.co/400x150/f7e6e8/CF2030?text=Pharmacy+Business'">
@@ -475,7 +473,7 @@
                         </div>
                     </div>
 
-                    <div class="dynamic-card-wrapper">
+                    <div class="dynamic-card-wrapper" data-profession="Professional Painting Services">
                         <img src="./openings imgs/smiling-painter-with-paint-roller-his-hand-wearing-cap-overalls-is-standing-against-dark-green-backgrou.jpg"
                             alt="Painting Services" class="card-image-square"
                             onerror="this.onerror=null; this.src='https://placehold.co/400x150/f7e6e8/CF2030?text=Painting+Services'">
@@ -491,7 +489,7 @@
                         </div>
                     </div>
 
-                    <div class="dynamic-card-wrapper">
+                    <div class="dynamic-card-wrapper" data-profession="Influencer Marketing">
                         <img src="./openings imgs/makeup-artist-vlogging-her-tutorials.jpg" alt="Influencer Marketing"
                             class="card-image-square"
                             onerror="this.onerror=null; this.src='https://placehold.co/400x150/f7e6e8/CF2030?text=Influencer+Marketing'">
@@ -507,7 +505,7 @@
                         </div>
                     </div>
 
-                    <div class="dynamic-card-wrapper">
+                    <div class="dynamic-card-wrapper" data-profession="Makeup Artist">
                         <img src="./openings imgs/young-woman-holding-paint-brushes-gray.jpg" alt="Makeup Artist"
                             class="card-image-square"
                             onerror="this.onerror=null; this.src='https://placehold.co/400x150/f7e6e8/CF2030?text=Makeup+Artist'">
@@ -523,7 +521,7 @@
                         </div>
                     </div>
 
-                    <div class="dynamic-card-wrapper">
+                    <div class="dynamic-card-wrapper" data-profession="Warehousing and Storage Services">
                         <img src="./openings imgs/interior-large-distribution-warehouse-with-shelves-stacked-with-palettes-goods-ready-market.jpg"
                             alt="Warehousing" class="card-image-square"
                             onerror="this.onerror=null; this.src='https://placehold.co/400x150/f7e6e8/CF2030?text=Warehousing'">
@@ -539,7 +537,7 @@
                         </div>
                     </div>
 
-                    <div class="dynamic-card-wrapper">
+                    <div class="dynamic-card-wrapper" data-profession="Solar Business">
                         <img src="./openings imgs/shutterstock_192039461.jpg" alt="Solar Business"
                             class="card-image-square"
                             onerror="this.onerror=null; this.src='https://placehold.co/400x150/f7e6e8/CF2030?text=Solar+Business'">
@@ -555,7 +553,7 @@
                         </div>
                     </div>
 
-                    <div class="dynamic-card-wrapper">
+                    <div class="dynamic-card-wrapper" data-profession="Facility Management Services">
                         <img src="./openings imgs/shutterstock_2399344103-1135x675.jpg" alt="Facility Management"
                             class="card-image-square"
                             onerror="this.onerror=null; this.src='https://placehold.co/400x150/f7e6e8/CF2030?text=Facility+Management'">
@@ -571,7 +569,7 @@
                         </div>
                     </div>
 
-                    <div class="dynamic-card-wrapper">
+                    <div class="dynamic-card-wrapper" data-profession="Waterproofing Solutions">
                         <img src="./openings imgs/worker-performs-overhaul-roof-residential-building.jpg"
                             alt="Waterproofing" class="card-image-square"
                             onerror="this.onerror=null; this.src='https://placehold.co/400x150/f7e6e8/CF2030?text=Waterproofing+Solutions'">
@@ -595,7 +593,7 @@
     </main>
 
     <button id="floating-chat-btn"
-        class="bg-bni-red text-white p-4 rounded-full shadow-lg hover:bg-red-700 transition duration-300 transform hover:scale-105">
+        class="bg-bni-red text-white p-4 rounded-full shadow-lg hover:bg-red-700 transition duration-300 transform hover:scale-105 fixed bottom-6 right-6">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 4v-4z">
@@ -618,20 +616,28 @@
             </div>
 
             <p class="text-sm text-gray-600 mb-4">Hi! Please leave your details and our team will connect with you
-                shortly.</p>
+                shortly.
+                <span id="profession-note" class="block mt-1 font-semibold text-bni-red hidden">Regarding: <span id="profession-name"></span></span>
+            </p>
 
-            <form action="#" method="POST" class="space-y-4">
+            <form id="chatForm" action="#" method="POST" class="space-y-4">
                 <div>
-                    <input type="text" placeholder="Name"
+                    <input type="hidden" name="Profession" id="profession-input" value="General Inquiry">
+                    <input type="text" placeholder="Name*" name="Name"
                         class="w-full p-3 border border-gray-300 rounded-lg focus:border-bni-red focus:ring-bni-red"
                         required>
                 </div>
                 <div>
-                    <input type="email" placeholder="Email"
+                    <input type="email" placeholder="Email*" name="Email"
                         class="w-full p-3 border border-gray-300 rounded-lg focus:border-bni-red focus:ring-bni-red"
                         required>
                 </div>
-                <button type="submit" id="invitation-form-submit"
+                <div>
+                    <input type="tel" placeholder="PhoneNumber*" name="PhoneNumber"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:border-bni-red focus:ring-bni-red"
+                        required>
+                </div>
+                <button type="submit" id="submitBtn"
                     class="w-full bg-bni-red text-white font-bold py-3 rounded-lg hover:bg-red-700 transition duration-300">
                     Send
                 </button>
@@ -646,134 +652,295 @@
     </div>
 
     <footer class="bg-[#000000] py-12 text-gray-400">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 border-b border-gray-700 pb-8 mb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 border-b border-gray-700 pb-8 mb-8">
 
-            <div>
-                <div class="flex items-center space-x-2 mb-4">
-                    <img src="./images/BNI.jpg" alt="BNI AURA Logo" class="h-8 w-auto object-contain"
-                        onerror="this.onerror=null; this.src='https://placehold.co/120x30/CF2030/ffffff?text=BNI+AURA+Logo'">
-                </div>
-                <p class="text-sm">
-                    Unlock new opportunities, forge valuable partnerships, and drive your business forward with BNI
-                    AURA.
-                </p>
-                <p class="text-xs mt-1 text-red-400 font-semibold">
-                    We believe in Givers Gain®.
-                </p>
-            </div>
-
-            <div>
-                <h4 class="text-lg font-semibold text-white mb-4 border-b border-bni-red pb-1">Quick Links</h4>
-                <nav class="space-y-2 text-sm">
-                    <a href="index.html" class="block hover:text-red-400 transition">Home</a>
-                    <a href="about.html" class="block hover:text-red-400 transition">About Us</a>
-                    <a href="categories.html" class="block hover:text-red-400 transition">Categories</a>
-                    <a href="invite.html" class="block hover:text-red-400 transition">Get Invited</a>
-                    <a href="join.html" class="block hover:text-red-400 transition">Join Us</a>
-                </nav>
-            </div>
-
-            <div>
-                <h4 class="text-lg font-semibold text-white mb-4 border-b border-bni-red pb-1">Contact</h4>
-                <div class="space-y-2 text-sm">
-                    <p class="flex items-start space-x-2">
-                        <svg class="w-5 h-5 mt-1 text-red-500 flex-shrink-0" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
-                            </path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        </svg>
-                        <span>
-                            BNI AURA Chapter Office,<br>
-                            123 Referral Blvd, Suite 400,<br>
-                            Business City, CA 90210
-                        </span>
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <img src="./images/BNI.jpg" alt="BNI AURA Logo" class="h-8 w-auto object-contain"
+                            onerror="this.onerror=null; this.src='https://placehold.co/120x30/CF2030/ffffff?text=BNI+AURA+Logo'">
+                    </div>
+                    <p class="text-sm">
+                        Unlock new opportunities, forge valuable partnerships, and drive your business forward with BNI
+                        AURA.
                     </p>
-                    <a href="mailto:bniaurablr@gmail.com"
-                        class="flex items-center space-x-2 hover:text-red-400 transition">
-                        <svg class="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
-                            </path>
-                        </svg>
-                        <span>bniaurablr@gmail.com</span>
-                    </a>
+                    <p class="text-xs mt-1 text-red-400 font-semibold">
+                        We believe in Givers Gain®.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4 border-b border-bni-red pb-1">Quick Links</h4>
+                    <nav class="space-y-2 text-sm">
+                        <a href="index.html" class="block hover:text-red-400 transition">Home</a>
+                        <a href="about.html" class="block hover:text-red-400 transition">About Us</a>
+                        <a href="categories.html" class="block hover:text-red-400 transition">Categories</a>
+                        <a href="invite.html" class="block hover:text-red-400 transition">Get Invited</a>
+                        <a href="join.html" class="block hover:text-red-400 transition">Join Us</a>
+                    </nav>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4 border-b border-bni-red pb-1">Contact</h4>
+                    <div class="space-y-2 text-sm">
+                        <p class="flex items-start space-x-2">
+                            <svg class="w-5 h-5 mt-1 text-red-500 flex-shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <span>
+                                BNI AURA Chapter Office,<br>
+                                123 Referral Blvd, Suite 400,<br>
+                                Business City, CA 90210
+                            </span>
+                        </p>
+                        <a href="mailto:bniaurablr@gmail.com"
+                            class="flex items-center space-x-2 hover:text-red-400 transition">
+                            <svg class="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                            <span>bniaurablr@gmail.com</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4 border-b border-bni-red pb-1">Connect</h4>
+                    <div class="flex space-x-4">
+
+                        <a href="https://www.instagram.com/bniaura/?igsh=MWU0N3U0bnlyMnUzcA%3D%3D#" target="_blank"
+                            class="border-2 border-bni-red w-8 h-8 rounded-full flex items-center justify-center transition hover:bg-bni-red group"
+                            title="Instagram">
+                            <svg class="w-5 h-5 fill-current text-bni-red group-hover:text-white" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.773 1.58 4.92 4.85.058 1.265.07 1.645.07 4.85s-.012 3.584-.07 4.85c-.147 3.27-1.678 4.773-4.92 4.92-1.266.058-1.645.07-4.85.07s-3.584-.012-4.85-.07c-3.27-.147-4.773-1.678-4.92-4.92-.058-1.265-.07-1.645-.07-4.85s.012-3.584.07-4.85c.147-3.27 1.678-4.773 4.92-4.92 1.265-.058 1.645-.07 4.85-.07zm0-2.163C8.715 0 8.358.012 7.1.07 3.655.22 1.3 2.64 1.15 6.1c-.058 1.265-.07 1.645-.07 4.85s.012 3.584.07 4.85c.15 3.45 2.57 5.869 6.1 6.019 1.265.058 1.645.07 4.85.07s3.584-.012 4.85-.07c3.45-.15 5.869-2.57 6.019-6.1.058-1.265.07-1.645.07-4.85s-.012-3.584-.07-4.85c-.15-3.45-2.57-5.869-6.1-6.019-1.265-.058-1.645-.07-4.85-.07zm0 6a4.5 4.5 0 100 9 4.5 4.5 0 000-9zm0 2a2.5 2.5 0 110 5 2.5 2.5 0 010-5zm5.5-2.75a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z" />
+                            </svg>
+                        </a>
+
+                        <a href="https://www.facebook.com/profile.php?id=61584641733092" target="_blank"
+                            class="border-2 border-bni-red w-8 h-8 rounded-full flex items-center justify-center transition hover:bg-bni-red group"
+                            title="Facebook">
+                            <svg class="w-5 h-5 fill-current text-bni-red group-hover:text-white" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path
+                                    d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-1.5 1.5-1.5h1.5V4h-2c-2.73 0-3.5 1.83-3.5 3.5v2H10v4h4v7h4v-7h2.5l1-4H18V9.5c0-1.03-.77-2.5-3-2.5h-1V4h-2v3.5h-1V10h-2v3.5H9V21h4v-7.5z" />
+                            </svg>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/bni-aura-75a52b393/" target="_blank"
+                            class="border-2 border-bni-red w-8 h-8 rounded-full flex items-center justify-center transition hover:bg-bni-red group"
+                            title="LinkedIn">
+                            <svg class="w-5 h-5 fill-current text-bni-red group-hover:text-white" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.366-4-3.297-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.355 7 3.013v6.222z" />
+                            </svg>
+                        </a>
+
+                        <a href="https://www.youtube.com/@BNIAuraBangalore" target="_blank"
+                            class="border-2 border-bni-red w-8 h-8 rounded-full flex items-center justify-center transition hover:bg-bni-red group"
+                            title="YouTube">
+                            <svg class="w-5 h-5 fill-current text-bni-red group-hover:text-white" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path
+                                    d="M19.615 3.184c-3.791-.79-7.234-1.056-10.43-.888-2.617.135-4.463.328-5.748.773-1.018.35-1.748 1.055-2.072 2.102-.338 1.082-.507 2.65-.507 4.757v2.545c0 2.107.17 3.675.507 4.757.324 1.047 1.054 1.752 2.072 2.102 1.285.445 3.131.638 5.748.773 3.196.168 6.639-.098 10.43-.888 3.328-.696 4.605-1.85 4.93-4.571.18-.755.27-1.785.27-3.086v-2.545c0-1.3-.09-2.33-.27-3.086-.325-2.72-1.602-3.875-4.93-4.571zm-9.332 10.976v-5.321l4.789 2.66-4.789 2.661z" />
+                            </svg>
+                        </a>
+
+                    </div>
                 </div>
             </div>
 
-            <div>
-                <h4 class="text-lg font-semibold text-white mb-4 border-b border-bni-red pb-1">Connect</h4>
-                <div class="flex space-x-4">
-
-                    <a href="https://www.instagram.com/bniaura/?igsh=MWU0N3U0bnlyMnUzcA%3D%3D#" target="_blank"
-                        class="border-2 border-bni-red w-8 h-8 rounded-full flex items-center justify-center transition hover:bg-bni-red group" title="Instagram">
-                        <svg class="w-5 h-5 fill-current text-bni-red group-hover:text-white" viewBox="0 0 24 24" aria-hidden="true">
-                            <path
-                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.773 1.58 4.92 4.85.058 1.265.07 1.645.07 4.85s-.012 3.584-.07 4.85c-.147 3.27-1.678 4.773-4.92 4.92-1.266.058-1.645.07-4.85.07s-3.584-.012-4.85-.07c-3.27-.147-4.773-1.678-4.92-4.92-.058-1.265-.07-1.645-.07-4.85s.012-3.584.07-4.85c.147-3.27 1.678-4.773 4.92-4.92 1.265-.058 1.645-.07 4.85-.07zm0-2.163C8.715 0 8.358.012 7.1.07 3.655.22 1.3 2.64 1.15 6.1c-.058 1.265-.07 1.645-.07 4.85s.012 3.584.07 4.85c.15 3.45 2.57 5.869 6.1 6.019 1.265.058 1.645.07 4.85.07s3.584-.012 4.85-.07c3.45-.15 5.869-2.57 6.019-6.1.058-1.265.07-1.645.07-4.85s-.012-3.584-.07-4.85c-.15-3.45-2.57-5.869-6.1-6.019-1.265-.058-1.645-.07-4.85-.07zm0 6a4.5 4.5 0 100 9 4.5 4.5 0 000-9zm0 2a2.5 2.5 0 110 5 2.5 2.5 0 010-5zm5.5-2.75a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z" />
-                        </svg>
-                    </a>
-
-                    <a href="https://www.facebook.com/profile.php?id=61584641733092" target="_blank"
-                        class="border-2 border-bni-red w-8 h-8 rounded-full flex items-center justify-center transition hover:bg-bni-red group" title="Facebook">
-                        <svg class="w-5 h-5 fill-current text-bni-red group-hover:text-white" viewBox="0 0 24 24" aria-hidden="true">
-                            <path
-                                d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-1.5 1.5-1.5h1.5V4h-2c-2.73 0-3.5 1.83-3.5 3.5v2H10v4h4v7h4v-7h2.5l1-4H18V9.5c0-1.03-.77-2.5-3-2.5h-1V4h-2v3.5h-1V10h-2v3.5H9V21h4v-7.5z" />
-                        </svg>
-                    </a>
-
-                    <a href="https://www.linkedin.com/in/bni-aura-75a52b393/" target="_blank"
-                        class="border-2 border-bni-red w-8 h-8 rounded-full flex items-center justify-center transition hover:bg-bni-red group" title="LinkedIn">
-                        <svg class="w-5 h-5 fill-current text-bni-red group-hover:text-white" viewBox="0 0 24 24" aria-hidden="true">
-                            <path
-                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.366-4-3.297-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.355 7 3.013v6.222z" />
-                        </svg>
-                    </a>
-
-                    <a href="https://www.youtube.com/@BNIAuraBangalore" target="_blank"
-                        class="border-2 border-bni-red w-8 h-8 rounded-full flex items-center justify-center transition hover:bg-bni-red group" title="YouTube">
-                        <svg class="w-5 h-5 fill-current text-bni-red group-hover:text-white" viewBox="0 0 24 24" aria-hidden="true">
-                            <path
-                                d="M19.615 3.184c-3.791-.79-7.234-1.056-10.43-.888-2.617.135-4.463.328-5.748.773-1.018.35-1.748 1.055-2.072 2.102-.338 1.082-.507 2.65-.507 4.757v2.545c0 2.107.17 3.675.507 4.757.324 1.047 1.054 1.752 2.072 2.102 1.285.445 3.131.638 5.748.773 3.196.168 6.639-.098 10.43-.888 3.328-.696 4.605-1.85 4.93-4.571.18-.755.27-1.785.27-3.086v-2.545c0-1.3-.09-2.33-.27-3.086-.325-2.72-1.602-3.875-4.93-4.571zm-9.332 10.976v-5.321l4.789 2.66-4.789 2.661z" />
-                        </svg>
-                    </a>
-
-                </div>
+            <div class="text-center text-sm">
+                <p>Copyright &copy; 2025 BNI AURA All Rights Reserved.</p>
             </div>
         </div>
+    </footer>
 
-        <div class="text-center text-sm">
-            <p>Copyright &copy; 2025 BNI AURA All Rights Reserved.</p>
-        </div>
-    </div>
-</footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // --- Mobile Menu Toggle JS (Main Hamburger) ---
+            // --- Core Setup ---
+            if (typeof feather !== 'undefined') {
+                feather.replace();
+            }
+
+            // 🔑 IMPORTANT: Paste your deployed Google Apps Script URL here.
+            const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz5pHjp-Z5vX1qdmNBeMTzN2g9N8qDbNijn0zwJKlJpVDOHIST_eaorLWhYLrW573vo/exec';
+
+            // 1. CHAT MODAL & FORM LOGIC
+            const chatModal = document.getElementById("chat-modal");
+            const chatBtn = document.getElementById("floating-chat-btn");
+            const closeChatBtn = document.getElementById("close-chat-btn");
+            const chatForm = document.getElementById('chatForm'); // Added ID to form
+            const submitBtn = chatForm ? document.getElementById('submitBtn') : null; // Added ID to button
+            const modalContainer = chatModal ? chatModal.querySelector('.chat-modal-container') : null;
+            const professionInput = document.getElementById('profession-input');
+            const professionNote = document.getElementById('profession-note');
+            const professionNameSpan = document.getElementById('profession-name');
+
+
+            // Modal Open/Close Handler
+            function toggleModal(profession = 'General Inquiry') {
+                if (!chatModal || !modalContainer) return;
+
+                // Update the hidden input field and display note
+                professionInput.value = profession;
+                if (profession !== 'General Inquiry') {
+                    professionNameSpan.textContent = profession;
+                    professionNote.classList.remove('hidden');
+                } else {
+                    professionNameSpan.textContent = '';
+                    professionNote.classList.add('hidden');
+                }
+
+                const isHidden = chatModal.classList.contains("hidden");
+
+                if (isHidden) {
+                    chatModal.classList.remove("hidden");
+                    setTimeout(() => {
+                        modalContainer.classList.add("active");
+                    }, 10);
+                } else {
+                    modalContainer.classList.remove("active");
+                    setTimeout(() => {
+                        chatModal.classList.add("hidden");
+                    }, 300);
+                    // Reset form and hidden field only if closed by user interaction (not submission success)
+                    // We keep the form reset outside of submission handler to handle direct close
+                    chatForm.reset();
+                    professionInput.value = 'General Inquiry'; 
+                    professionNameSpan.textContent = '';
+                    professionNote.classList.add('hidden');
+                }
+            }
+
+            // AJAX Form Submission Handler (with SweetAlert2)
+            function handleFormSubmission(e) {
+                e.preventDefault();
+
+                if (!chatForm || !submitBtn) return;
+
+                const formData = new FormData(chatForm);
+                // Also capture the hidden profession field.
+                
+                // Hide the modal immediately
+                modalContainer.classList.remove("active");
+                setTimeout(() => {
+                    chatModal.classList.add("hidden");
+                }, 300);
+
+                // 1. Show Loading Alert (SweetAlert2)
+                Swal.fire({
+                    title: 'Sending Inquiry...',
+                    text: 'Please wait while we process your request.',
+                    icon: 'info',
+                    showConfirmButton: false,
+                    allowOutsideClick: false,
+                    didOpen: () => {
+                        Swal.showLoading();
+                    }
+                });
+
+                // Set button state in the background for robustness
+                submitBtn.textContent = 'Sending...';
+                submitBtn.disabled = true;
+
+                // 2. Send Data to Google Apps Script URL
+                fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: formData
+                })
+                .then(() => {
+                    // 3. Show Success Alert (SweetAlert2)
+                    Swal.fire({
+                        title: 'Success!',
+                        html: 'Thank you for your interest. <br>Our BNI team will contact you shortly.',
+                        icon: 'success',
+                        confirmButtonText: 'Got It!',
+                        confirmButtonColor: '#CF2030'
+                    });
+                })
+                .catch(error => {
+                    // 3. Show Error Alert (SweetAlert2)
+                    console.error('Submission Error:', error);
+                    Swal.fire({
+                        title: 'Submission Failed',
+                        text: 'There was an issue connecting to the server. Please try again.',
+                        icon: 'error',
+                        confirmButtonText: 'Close',
+                        confirmButtonColor: '#CF2030'
+                    });
+                })
+                .finally(() => {
+                    // Reset form and button state regardless of success/failure
+                    chatForm.reset();
+                    professionInput.value = 'General Inquiry';
+                    professionNameSpan.textContent = '';
+                    professionNote.classList.add('hidden');
+                    
+                    submitBtn.textContent = 'Send';
+                    submitBtn.disabled = false;
+                });
+            }
+
+            // Attach Modal Event Listeners
+            if (chatBtn) chatBtn.addEventListener("click", () => toggleModal('General Inquiry'));
+            if (closeChatBtn) closeChatBtn.addEventListener("click", () => toggleModal('General Inquiry'));
+            if (chatModal) chatModal.addEventListener("click", (e) => {
+                if (e.target.classList.contains('modal-overlay')) {
+                    toggleModal('General Inquiry');
+                }
+            });
+
+            // Attach Form Submission Listener
+            if (chatForm) {
+                chatForm.addEventListener('submit', handleFormSubmission);
+            }
+
+            // Attach handler to the dynamic-card-wrapper elements
+            document.querySelectorAll('.dynamic-card-wrapper').forEach(card => {
+                card.addEventListener('click', (e) => {
+                    // Prevent default link/button action if any
+                    e.preventDefault(); 
+                    
+                    // Get the profession name from the data attribute
+                    const profession = card.getAttribute('data-profession') || 'Business Showcase Inquiry';
+
+                    // Trigger the modal with the specific profession
+                    if (chatModal.classList.contains("hidden")) {
+                        toggleModal(profession);
+                    }
+                });
+            });
+
+
+            // 4. MOBILE MENU & ACCORDION LOGIC
             const menuBtn = document.getElementById("menuBtn");
             const mobileMenu = document.getElementById("mobileMenu");
             const mobileMenuButton = document.getElementById('mobileMenuButton'); // Hamburger Icon
             const mobileSubCategories = document.getElementById('mobileSubCategories');
-            const categoryToggle = document.getElementById('categoryToggle');
-            const toggleIcon = document.getElementById('toggleIcon');
+            const toggleIcon = document.getElementById('toggleIcon'); // Arrow icon
 
-            // --- Floating Chat/Modal Elements ---
-            const chatBtn = document.getElementById("floating-chat-btn");
-            const chatModal = document.getElementById("chat-modal");
-            const closeChatBtn = document.getElementById("close-chat-btn");
-            const modalOverlay = chatModal.querySelector('.modal-overlay');
-            const submitButton = document.getElementById("invitation-form-submit");
-
-
+            // Helper function to update the hamburger icon based on menu state
             function updateMobileMenuIcon(isOpen) {
                 if (mobileMenuButton) {
-                    mobileMenuButton.innerHTML = isOpen
-                        ? '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>'
-                        : '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+                    if (isOpen) {
+                        // X Icon
+                        mobileMenuButton.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+                    } else {
+                        // Hamburger Icon
+                        mobileMenuButton.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+                    }
                 }
             }
 
@@ -784,83 +951,41 @@
             });
 
             // --- Mobile Categories Accordion Toggle JS ---
+            const categoryToggle = document.querySelector('#mobileMenu .border-b a[href="categories.html"]'); 
+
             if (categoryToggle && mobileSubCategories && toggleIcon) {
                 categoryToggle.addEventListener('click', (e) => {
-                    // Prevent the underlying navigation link from firing
-                    e.preventDefault();
-                    const isHidden = mobileSubCategories.classList.contains('hidden');
+                    // Prevent navigation if the submenu is hidden
+                    if (mobileSubCategories.classList.contains('hidden')) {
+                        e.preventDefault(); 
+                    }
+                    const isCategoriesHidden = mobileSubCategories.classList.contains('hidden');
                     mobileSubCategories.classList.toggle('hidden');
-                    toggleIcon.classList.toggle('rotate-90', isHidden);
+
+                    if (isCategoriesHidden) {
+                        toggleIcon.classList.add('rotate-90');
+                    } else {
+                        toggleIcon.classList.remove('rotate-90');
+                    }
                 });
             }
-
-            // --- Close Mobile Menu on Link Click ---
+            
+            // --- Close mobile menu on clicking any link ---
             const mobileLinks = mobileMenu.querySelectorAll('a');
             mobileLinks.forEach(link => {
                 link.addEventListener('click', () => {
-                    // Check if the clicked link is not the category toggle button itself
-                    if (!link.closest('.border-b.border-red-100')) {
-                        // Reset category menu state when main menu closes
-                        if (mobileSubCategories) mobileSubCategories.classList.add('hidden');
-                        if (toggleIcon) toggleIcon.classList.remove('rotate-90');
+                    if (!link.closest('.border-b')) {
+                        if (mobileSubCategories) {
+                            mobileSubCategories.classList.add('hidden');
+                        }
+                        if (toggleIcon) {
+                            toggleIcon.classList.remove('rotate-90');
+                        }
                         mobileMenu.classList.add('hidden');
-                        updateMobileMenuIcon(false); // Reset icon to hamburger
+                        updateMobileMenuIcon(false);
                     }
                 });
             });
-
-            // --- Floating Chat/Modal JS (Global) ---
-            const toggleModal = (show) => {
-                if (show) {
-                    chatModal.classList.remove('hidden');
-                    chatModal.classList.add('show-modal'); // Use this class to control visibility/animation
-                } else {
-                    chatModal.classList.remove('show-modal');
-                    chatModal.classList.add('hidden');
-                }
-            };
-
-            if (chatBtn) {
-                chatBtn.addEventListener("click", () => toggleModal(true));
-            }
-            if (closeChatBtn) {
-                closeChatBtn.addEventListener("click", () => toggleModal(false));
-            }
-            if (modalOverlay) {
-                // Clicking the overlay should hide the modal
-                modalOverlay.addEventListener("click", () => toggleModal(false));
-            }
-
-            // Add click listener to the Submit Request button on the page form
-            if (submitButton) {
-                submitButton.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    // In a real application, form data would be validated and submitted here.
-                    alert("Invitation request submitted successfully! A host will contact you shortly.");
-                    toggleModal(false); // Close modal after simulated submission
-                });
-            }
-
-            // Attach the click handler to all profession cards (which link to #floating-chat-btn)
-            document.querySelectorAll('.profession-card').forEach(card => {
-                card.addEventListener('click', (e) => {
-                    e.preventDefault(); // Prevent default link behavior
-                    if (chatModal.classList.contains("hidden")) {
-                        toggleModal(true);
-                    }
-                });
-            });
-
-            // Attach the click handler to the CTA button (which links to #floating-chat-btn)
-            const joinCtaLink = document.querySelector('#join a');
-            if (joinCtaLink) {
-                joinCtaLink.addEventListener('click', (e) => {
-                    e.preventDefault(); // Prevent default link behavior
-                    if (chatModal.classList.contains("hidden")) {
-                        toggleModal(true);
-                    }
-                });
-            }
         });
     </script>
 </body>

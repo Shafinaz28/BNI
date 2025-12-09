@@ -6,13 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CONSTRUCTION TEAM - BNI AURA</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script src="https://unpkg.com/feather-icons"></script>
     <style>
-        /* Custom styles for BNI theme and red color consistency (UPDATED) */
+        /* --- Custom BNI Red Theme & Unique Team Colors (UPDATED) --- */
         :root {
             --bni-red: #CF2030;
-            /* New Consistent Red */
+            /* New Primary Red */
             --bni-red-dark: #A51A27;
             /* New Darker Red */
             --bni-red-light-accent: #f7e6e8;
@@ -29,6 +33,30 @@
 
         .border-bni-red {
             border-color: var(--bni-red);
+        }
+
+        /* Utility for Header Spacing */
+        .pt-header-fix {
+            padding-top: 5rem;
+        }
+
+        @media (min-width: 768px) {
+            .pt-header-fix {
+                padding-top: 6rem;
+            }
+        }
+
+        /* Dropdown */
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Active navigation link styling */
+        .nav-link.active {
+            color: var(--bni-red);
+            font-weight: bold;
+            border-bottom: 2px solid var(--bni-red);
+            padding-bottom: 0.25rem;
         }
 
         /* --- PROFESSION CARD STYLING (Applying the requested square design) --- */
@@ -139,33 +167,11 @@
         }
 
 
-        /* Utility for Header Spacing */
-        .pt-header-fix {
-            padding-top: 5rem;
-        }
-
-        @media (min-width: 768px) {
-            .pt-header-fix {
-                padding-top: 6rem;
-            }
-        }
-
-        /* FIX: Ensure dropdown menu shows on hover for desktop */
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
-
-        /* Mobile Menu Fixes */
-        #mobileSubCategories a {
-            padding-left: 2rem !important;
-            padding-right: 1rem;
-        }
-
         /* --- FLOATING CHAT/MODAL STYLES (RIGHT SIDE) --- */
         #floating-chat-btn {
             position: fixed;
-            bottom: 2rem;
-            right: 2rem;
+            bottom: 1.5rem;
+            right: 1.5rem;
             left: auto;
             z-index: 1000;
         }
@@ -180,22 +186,24 @@
             z-index: 900;
         }
 
-        .chat-modal-container {
+        #chat-modal {
             position: fixed;
             bottom: 6rem;
-            right: 2rem;
-            left: auto;
-            width: 90%;
-            max-width: 350px;
+            right: 1.5rem;
+            width: 100%;
+            max-width: 20rem;
             z-index: 1000;
+        }
+
+        .chat-modal-container {
             transform: translateY(20px);
             opacity: 0;
-            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
         }
 
         .chat-modal-container.active {
-            opacity: 1;
             transform: translateY(0);
+            opacity: 1;
         }
     </style>
 </head>
@@ -290,7 +298,7 @@
 
                 <div class="border-b border-red-100">
                     <div
-                        class="flex justify-between items-center w-full px-3 py-2 rounded-md hover:bg-red-50 transition duration-300 ">
+                        class="flex justify-between items-center w-full px-3 py-2 rounded-md hover:bg-red-50 hover:text-bni-red transition duration-300 ">
                         <a href="categories.html" class="flex-grow font-bold text-bni-red active hover:text-bni-red ">
                             Categories
                         </a>
@@ -586,119 +594,6 @@
                         <i class="fas fa-arrow-right card-utility-icon"></i>
                     </a>
 
-                    <a href="#floating-chat-btn" class="profession-card" title="Inquire about CURTAINS & BLINDS seat"
-                        onclick="document.getElementById('floating-chat-btn').click(); return false;">
-                        <span class="card-header-label">CONSTRUCTION / SOFT FURNISHINGS</span>
-                        <div class="profession-icon-container">
-                            <i class="fas fa-window-maximize text-bni-red text-3xl"></i>
-                        </div>
-                        <div class="profession-label">CURTAINS & BLINDS</div>
-                        <p class="profession-description">Specializes in customized window treatments, including automated blinds, drapes, and shades, controlling light, privacy, and thermal efficiency within the structure.</p>
-                        <i class="fas fa-arrow-right card-utility-icon"></i>
-                    </a>
-
-                    <a href="#floating-chat-btn" class="profession-card" title="Inquire about HOME THEATRE seat"
-                        onclick="document.getElementById('floating-chat-btn').click(); return false;">
-                        <span class="card-header-label">CONSTRUCTION / AV INTEGRATION</span>
-                        <div class="profession-icon-container">
-                            <i class="fas fa-video text-bni-red text-3xl"></i>
-                        </div>
-                        <div class="profession-label">HOME THEATRE</div>
-                        <p class="profession-description">Designs and installs bespoke audio-visual and home automation systems, including acoustic paneling, projectors, and hidden wiring for ultimate entertainment experience.</p>
-                        <i class="fas fa-arrow-right card-utility-icon"></i>
-                    </a>
-
-                    <a href="#floating-chat-btn" class="profession-card" title="Inquire about SIGNAGES seat"
-                        onclick="document.getElementById('floating-chat-btn').click(); return false;">
-                        <span class="card-header-label">CONSTRUCTION / BRANDING</span>
-                        <div class="profession-icon-container">
-                            <i class="fas fa-signs-post text-bni-red text-3xl"></i>
-                        </div>
-                        <div class="profession-label">SIGNAGES</div>
-                        <p class="profession-description">Manufacturers of commercial signage, including LED boards, 3D letters, and directional signs, crucial for navigation and brand visibility on commercial properties.</p>
-                        <i class="fas fa-arrow-right card-utility-icon"></i>
-                    </a>
-
-                    <a href="#floating-chat-btn" class="profession-card"
-                        title="Inquire about CCTV & NETWORKING seat"
-                        onclick="document.getElementById('floating-chat-btn').click(); return false;">
-                        <span class="card-header-label">CONSTRUCTION / SECURITY</span>
-                        <div class="profession-icon-container">
-                            <i class="fas fa-video text-bni-red text-3xl"></i>
-                        </div>
-                        <div class="profession-label">CCTV & NETWORKING</div>
-                        <p class="profession-description">Provides integrated security solutions, including surveillance cameras (CCTV), access control, and complete data networking infrastructure planning and installation.</p>
-                        <i class="fas fa-arrow-right card-utility-icon"></i>
-                    </a>
-
-                    <a href="#floating-chat-btn" class="profession-card" title="Inquire about FURNITURE seat"
-                        onclick="document.getElementById('floating-chat-btn').click(); return false;">
-                        <span class="card-header-label">CONSTRUCTION / INTERIORS</span>
-                        <div class="profession-icon-container">
-                            <i class="fas fa-couch text-bni-red text-3xl"></i>
-                        </div>
-                        <div class="profession-label">FURNITURE</div>
-                        <p class="profession-description">Suppliers and distributors of ergonomic and aesthetic furniture for office spaces, hospitality venues, and residential settings, ensuring comfort and style.</p>
-                        <i class="fas fa-arrow-right card-utility-icon"></i>
-                    </a>
-
-                    <a href="#floating-chat-btn" class="profession-card"
-                        title="Inquire about BUILDING MATERIAL SUPPLIER seat"
-                        onclick="document.getElementById('floating-chat-btn').click(); return false;">
-                        <span class="card-header-label">CONSTRUCTION / CORE MATERIALS</span>
-                        <div class="profession-icon-container">
-                            <i class="fas fa-truck-ramp-box text-bni-red text-3xl"></i>
-                        </div>
-                        <div class="profession-label">BUILDING MATERIAL SUPPLIER</div>
-                        <p class="profession-description">Deals in fundamental construction supplies like cement, rebar, sand, and aggregates, ensuring the foundation and structure of the building meet quality standards.</p>
-                        <i class="fas fa-arrow-right card-utility-icon"></i>
-                    </a>
-
-                    <a href="#floating-chat-btn" class="profession-card" title="Inquire about MS FABRICATOR seat"
-                        onclick="document.getElementById('floating-chat-btn').click(); return false;">
-                        <span class="card-header-label">CONSTRUCTION / METALWORK</span>
-                        <div class="profession-icon-container">
-                            <i class="fas fa-helmet-safety text-bni-red text-3xl"></i>
-                        </div>
-                        <div class="profession-label">MS FABRICATOR</div>
-                        <p class="profession-description">Custom metal fabrication services, including mild steel railings, gates, structural supports, and custom decorative metalwork used in construction and finishing.</p>
-                        <i class="fas fa-arrow-right card-utility-icon"></i>
-                    </a>
-
-                    <a href="#floating-chat-btn" class="profession-card" title="Inquire about FIRE SAFETY seat"
-                        onclick="document.getElementById('floating-chat-btn').click(); return false;">
-                        <span class="card-header-label">CONSTRUCTION / SAFETY</span>
-                        <div class="profession-icon-container">
-                            <i class="fas fa-fire-extinguisher text-bni-red text-3xl"></i>
-                        </div>
-                        <div class="profession-label">FIRE SAFETY</div>
-                        <p class="profession-description">Installation and certification of fire suppression systems, alarms, sprinklers, and emergency exits to ensure full compliance with national and local fire codes.</p>
-                        <i class="fas fa-arrow-right card-utility-icon"></i>
-                    </a>
-
-                    <a href="#floating-chat-btn" class="profession-card" title="Inquire about GRANITE & MARBLES seat"
-                        onclick="document.getElementById('floating-chat-btn').click(); return false;">
-                        <span class="card-header-label">CONSTRUCTION / NATURAL STONE</span>
-                        <div class="profession-icon-container">
-                            <i class="fas fa-gem text-bni-red text-3xl"></i>
-                        </div>
-                        <div class="profession-label">GRANITE & MARBLES</div>
-                        <p class="profession-description">Provider of imported and domestic granite, marble, and quartz slabs for countertops, flooring, and wall cladding, specializing in cutting and installation.</p>
-                        <i class="fas fa-arrow-right card-utility-icon"></i>
-                    </a>
-
-                    <a href="#floating-chat-btn" class="profession-card"
-                        title="Inquire about SOLID WOOD DOORS & WINDOWS seat"
-                        onclick="document.getElementById('floating-chat-btn').click(); return false;">
-                        <span class="card-header-label">CONSTRUCTION / WOODWORK</span>
-                        <div class="profession-icon-container">
-                            <i class="fas fa-door-open text-bni-red text-3xl"></i>
-                        </div>
-                        <div class="profession-label">SOLID WOOD DOORS & WINDOWS</div>
-                        <p class="profession-description">Crafts and installs custom doors and window frames made from solid wood, offering classic aesthetics, superior security, and exceptional craftsmanship.</p>
-                        <i class="fas fa-arrow-right card-utility-icon"></i>
-                    </a>
-
                 </div>
             </div>
         </section>
@@ -723,7 +618,7 @@
     </main>
 
     <button id="floating-chat-btn"
-        class="bg-bni-red text-white p-4 rounded-full shadow-lg hover:bg-red-700 transition duration-300 transform hover:scale-105">
+        class="bg-bni-red text-white p-4 rounded-full shadow-lg hover:bg-red-700 transition duration-300 transform hover:scale-105 fixed bottom-6 right-6">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 4v-4z">
@@ -732,7 +627,7 @@
     </button>
 
     <div id="chat-modal" class="hidden">
-        <div class="modal-overlay"></div>
+        
         <div class="chat-modal-container bg-white rounded-xl shadow-2xl p-6 border-t-4 border-bni-red">
             <div class="flex justify-between items-start border-b pb-3 mb-4">
                 <h3 class="text-xl font-bold text-gray-900">BNI <span class="text-bni-red">AURA</span></h3>
@@ -748,18 +643,23 @@
             <p class="text-sm text-gray-600 mb-4">Hi! Please leave your details and our team will connect with you
                 shortly.</p>
 
-            <form action="#" method="POST" class="space-y-4">
+            <form id="chatForm" action="#" method="POST" class="space-y-4">
                 <div>
-                    <input type="text" placeholder="Name*"
+                    <input type="text" placeholder="Name*" name="Name"
                         class="w-full p-3 border border-gray-300 rounded-lg focus:border-bni-red focus:ring-bni-red"
                         required>
                 </div>
                 <div>
-                    <input type="email" placeholder="Email*"
+                    <input type="email" placeholder="Email*" name="Email"
                         class="w-full p-3 border border-gray-300 rounded-lg focus:border-bni-red focus:ring-bni-red"
                         required>
                 </div>
-                <button type="submit"
+                <div>
+                    <input type="phonenumber" placeholder="PhoneNumber*" name="PhoneNumber"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:border-bni-red focus:ring-bni-red"
+                        required>
+                </div>
+                <button type="submit" id="submitBtn"
                     class="w-full bg-bni-red text-white font-bold py-3 rounded-lg hover:bg-red-700 transition duration-300">
                     Send
                 </button>
@@ -837,12 +737,43 @@
                     <h4 class="text-lg font-semibold text-white mb-4 border-b border-bni-red pb-1">Connect</h4>
                     <div class="flex space-x-4">
 
-
-                        <a href="https://www.instagram.com/bniaura/?igsh=MWU0N3U0bnlyMnUzcA%3D%3D#"
-                            class="text-red-400 hover:text-white transition">
-                            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <a href="https://www.instagram.com/bniaura/?igsh=MWU0N3U0bnlyMnUzcA%3D%3D#" target="_blank"
+                            class="border-2 border-bni-red w-8 h-8 rounded-full flex items-center justify-center transition hover:bg-bni-red group"
+                            title="Instagram">
+                            <svg class="w-5 h-5 fill-current text-bni-red group-hover:text-white" viewBox="0 0 24 24"
+                                aria-hidden="true">
                                 <path
                                     d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.773 1.58 4.92 4.85.058 1.265.07 1.645.07 4.85s-.012 3.584-.07 4.85c-.147 3.27-1.678 4.773-4.92 4.92-1.266.058-1.645.07-4.85.07s-3.584-.012-4.85-.07c-3.27-.147-4.773-1.678-4.92-4.92-.058-1.265-.07-1.645-.07-4.85s.012-3.584.07-4.85c.147-3.27 1.678-4.773 4.92-4.92 1.265-.058 1.645-.07 4.85-.07zm0-2.163C8.715 0 8.358.012 7.1.07 3.655.22 1.3 2.64 1.15 6.1c-.058 1.265-.07 1.645-.07 4.85s.012 3.584.07 4.85c.15 3.45 2.57 5.869 6.1 6.019 1.265.058 1.645.07 4.85.07s3.584-.012 4.85-.07c3.45-.15 5.869-2.57 6.019-6.1.058-1.265.07-1.645.07-4.85s-.012-3.584-.07-4.85c-.15-3.45-2.57-5.869-6.1-6.019-1.265-.058-1.645-.07-4.85-.07zm0 6a4.5 4.5 0 100 9 4.5 4.5 0 000-9zm0 2a2.5 2.5 0 110 5 2.5 2.5 0 010-5zm5.5-2.75a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z" />
+                            </svg>
+                        </a>
+
+                        <a href="https://www.facebook.com/profile.php?id=61584641733092" target="_blank"
+                            class="border-2 border-bni-red w-8 h-8 rounded-full flex items-center justify-center transition hover:bg-bni-red group"
+                            title="Facebook">
+                            <svg class="w-5 h-5 fill-current text-bni-red group-hover:text-white" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path
+                                    d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-1.5 1.5-1.5h1.5V4h-2c-2.73 0-3.5 1.83-3.5 3.5v2H10v4h4v7h4v-7h2.5l1-4H18V9.5c0-1.03-.77-2.5-3-2.5h-1V4h-2v3.5h-1V10h-2v3.5H9V21h4v-7.5z" />
+                            </svg>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/bni-aura-75a52b393/" target="_blank"
+                            class="border-2 border-bni-red w-8 h-8 rounded-full flex items-center justify-center transition hover:bg-bni-red group"
+                            title="LinkedIn">
+                            <svg class="w-5 h-5 fill-current text-bni-red group-hover:text-white" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.366-4-3.297-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.355 7 3.013v6.222z" />
+                            </svg>
+                        </a>
+
+                        <a href="https://www.youtube.com/@BNIAuraBangalore" target="_blank"
+                            class="border-2 border-bni-red w-8 h-8 rounded-full flex items-center justify-center transition hover:bg-bni-red group"
+                            title="YouTube">
+                            <svg class="w-5 h-5 fill-current text-bni-red group-hover:text-white" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path
+                                    d="M19.615 3.184c-3.791-.79-7.234-1.056-10.43-.888-2.617.135-4.463.328-5.748.773-1.018.35-1.748 1.055-2.072 2.102-.338 1.082-.507 2.65-.507 4.757v2.545c0 2.107.17 3.675.507 4.757.324 1.047 1.054 1.752 2.072 2.102 1.285.445 3.131.638 5.748.773 3.196.168 6.639-.098 10.43-.888 3.328-.696 4.605-1.85 4.93-4.571.18-.755.27-1.785.27-3.086v-2.545c0-1.3-.09-2.33-.27-3.086-.325-2.72-1.602-3.875-4.93-4.571zm-9.332 10.976v-5.321l4.789 2.66-4.789 2.661z" />
                             </svg>
                         </a>
 
@@ -855,20 +786,155 @@
             </div>
         </div>
     </footer>
+
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // --- Mobile Menu Toggle JS ---
+            // --- Core Setup ---
+            if (typeof feather !== 'undefined') {
+                feather.replace();
+            }
+
+            // 🔑 IMPORTANT: Paste your deployed Google Apps Script URL here.
+            const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz5pHjp-Z5vX1qdmNBeMTzN2g9N8qDbNijn0zwJKlJpVDOHIST_eaorLWhYLrW573vo/exec';
+
+            // 1. CHAT MODAL & FORM LOGIC
+            const chatModal = document.getElementById("chat-modal");
+            const chatBtn = document.getElementById("floating-chat-btn");
+            const closeChatBtn = document.getElementById("close-chat-btn");
+            // NOTE: Form MUST have id="chatForm" and button MUST have id="submitBtn"
+            const chatForm = document.querySelector('#chat-modal form');
+            const submitBtn = chatForm ? chatForm.querySelector('button[type="submit"]') : null;
+            const modalContainer = chatModal ? chatModal.querySelector('.chat-modal-container') : null;
+
+
+            // Modal Open/Close Handler
+            function toggleModal() {
+                if (!chatModal || !modalContainer) return;
+                const isHidden = chatModal.classList.contains("hidden");
+
+                if (isHidden) {
+                    chatModal.classList.remove("hidden");
+                    setTimeout(() => {
+                        modalContainer.classList.add("active");
+                    }, 10);
+                } else {
+                    modalContainer.classList.remove("active");
+                    setTimeout(() => {
+                        chatModal.classList.add("hidden");
+                    }, 300);
+                    if (chatForm) {
+                        chatForm.reset();
+                    }
+                }
+            }
+
+            // AJAX Form Submission Handler (with SweetAlert2)
+            function handleFormSubmission(e) {
+                e.preventDefault();
+
+                if (!chatForm || !submitBtn) return;
+
+                const formData = new FormData(chatForm);
+
+                // Close the visual chat box immediately, open SweetAlert loading dialog
+                toggleModal();
+
+                // 1. Show Loading Alert (SweetAlert2)
+                Swal.fire({
+                    title: 'Sending Inquiry...',
+                    text: 'Please wait while we process your request.',
+                    icon: 'info',
+                    showConfirmButton: false,
+                    allowOutsideClick: false,
+                    didOpen: () => {
+                        Swal.showLoading();
+                    }
+                });
+
+                // Set button state in the background for robustness
+                submitBtn.textContent = 'Sending...';
+                submitBtn.disabled = true;
+
+                // 2. Send Data to Google Apps Script URL
+                fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: formData
+                })
+                .then(() => {
+                    // 3. Show Success Alert (SweetAlert2)
+                    Swal.fire({
+                        title: 'Success!',
+                        html: 'Thank you for your interest. <br>Our BNI team will contact you shortly.',
+                        icon: 'success',
+                        confirmButtonText: 'Got It!',
+                        confirmButtonColor: '#CF2030'
+                    });
+                })
+                .catch(error => {
+                    // 3. Show Error Alert (SweetAlert2)
+                    console.error('Submission Error:', error);
+                    Swal.fire({
+                        title: 'Submission Failed',
+                        text: 'There was an issue connecting to the server. Please try again.',
+                        icon: 'error',
+                        confirmButtonText: 'Close',
+                        confirmButtonColor: '#CF2030'
+                    });
+                })
+                .finally(() => {
+                    // Reset button state regardless of success/failure
+                    submitBtn.textContent = 'Send';
+                    submitBtn.disabled = false;
+                });
+            }
+
+            // Attach Modal Event Listeners
+            if (chatBtn) chatBtn.addEventListener("click", toggleModal);
+            if (closeChatBtn) closeChatBtn.addEventListener("click", toggleModal);
+            if (chatModal) chatModal.addEventListener("click", (e) => {
+                if (e.target.classList.contains('modal-overlay')) {
+                    toggleModal();
+                }
+            });
+
+            // Attach Form Submission Listener
+            // NOTE: We rely on querySelector and ensure the ID/name attributes are present in HTML
+            const mainChatForm = document.querySelector('#chat-modal form');
+            if (mainChatForm) {
+                // Ensure form and button have correct IDs
+                mainChatForm.setAttribute('id', 'chatForm');
+                mainChatForm.querySelector('button[type="submit"]').setAttribute('id', 'submitBtn');
+                
+                // Add name attributes to inputs for FormData serialization
+                mainChatForm.querySelector('input[placeholder="Name*"]').setAttribute('name', 'Name');
+                mainChatForm.querySelector('input[placeholder="Email*"]').setAttribute('name', 'Email');
+
+                // Attach the handler AFTER setting the ID
+                mainChatForm.addEventListener('submit', handleFormSubmission);
+            }
+
+            // Attach handler to the large CTA buttons (profession cards, bottom inquire button)
+            document.querySelectorAll('.profession-card, #join a').forEach(element => {
+                element.addEventListener('click', (e) => {
+                    // Trigger the chat modal when a card or CTA is clicked
+                    e.preventDefault();
+                    if (chatModal.classList.contains("hidden")) {
+                        toggleModal();
+                    }
+                });
+            });
+
+
+            // 4. MOBILE MENU & ACCORDION LOGIC
             const menuBtn = document.getElementById("menuBtn");
             const mobileMenu = document.getElementById("mobileMenu");
             const mobileMenuButton = document.getElementById('mobileMenuButton'); // Hamburger Icon
-
-            // Corrected ID for mobile sub-categories used in closing logic
             const mobileSubCategories = document.getElementById('mobileSubCategories');
-            const categoryToggle = document.getElementById('categoryToggle'); // Button to toggle dropdown
-            const toggleIcon = document.getElementById('toggleIcon'); // Arrow icon inside the button
+            const toggleIcon = document.getElementById('toggleIcon'); // Arrow icon
 
-
-            // Helper function to update the hamburger icon
+            // Helper function to update the hamburger icon based on menu state
             function updateMobileMenuIcon(isOpen) {
                 if (mobileMenuButton) {
                     if (isOpen) {
@@ -887,30 +953,27 @@
                 updateMobileMenuIcon(isHidden);
             });
 
-            // --- Mobile Categories Accordion Toggle JS (Fixed to prevent navigation) ---
+            // --- Mobile Categories Accordion Toggle JS ---
+            const categoryToggle = document.querySelector('#mobileMenu a[href="categories.html"]'); 
+
             if (categoryToggle && mobileSubCategories && toggleIcon) {
                 categoryToggle.addEventListener('click', (e) => {
-                    // Prevent the link (categories.html) from being navigated to when clicking the toggle button
-                    e.preventDefault();
-
-                    const isHidden = mobileSubCategories.classList.contains('hidden');
+                    const isCategoriesHidden = mobileSubCategories.classList.contains('hidden');
                     mobileSubCategories.classList.toggle('hidden');
 
-                    if (isHidden) {
+                    if (isCategoriesHidden) {
                         toggleIcon.classList.add('rotate-90');
                     } else {
                         toggleIcon.classList.remove('rotate-90');
                     }
                 });
             }
-
+            
             // --- Close mobile menu on clicking any link ---
             const mobileLinks = mobileMenu.querySelectorAll('a');
             mobileLinks.forEach(link => {
                 link.addEventListener('click', () => {
-                    // Check if the clicked link is not the category toggle button itself
-                    if (!link.closest('.flex.justify-between')) {
-                        // Reset category menu state when main menu closes
+                    if (!link.closest('.border-b')) {
                         if (mobileSubCategories) {
                             mobileSubCategories.classList.add('hidden');
                         }
@@ -918,68 +981,11 @@
                             toggleIcon.classList.remove('rotate-90');
                         }
                         mobileMenu.classList.add('hidden');
-                        updateMobileMenuIcon(false); // Reset icon to hamburger
+                        updateMobileMenuIcon(false);
                     }
                 });
             });
 
-
-            // --- Floating Chat/Modal JS (Global) ---
-            const chatBtn = document.getElementById("floating-chat-btn");
-            const chatModal = document.getElementById("chat-modal");
-            const closeChatBtn = document.getElementById("close-chat-btn");
-
-            // Function to toggle the chat modal visibility
-            const toggleModal = () => {
-                const modalContainer = chatModal.querySelector('.chat-modal-container');
-                const isHidden = chatModal.classList.contains("hidden");
-
-                if (isHidden) {
-                    chatModal.classList.remove("hidden");
-                    setTimeout(() => {
-                        modalContainer.classList.add("active");
-                    }, 10);
-                } else {
-                    modalContainer.classList.remove("active");
-                    setTimeout(() => {
-                        chatModal.classList.add("hidden");
-                    }, 300); // Wait for CSS transition
-                }
-            };
-
-            if (chatModal) {
-                if (chatBtn) {
-                    chatBtn.addEventListener("click", toggleModal);
-                }
-                if (closeChatBtn) {
-                    closeChatBtn.addEventListener("click", toggleModal);
-                }
-
-                // Close modal if overlay is clicked
-                chatModal.addEventListener("click", (e) => {
-                    if (e.target.classList.contains('modal-overlay')) {
-                        toggleModal();
-                    }
-                });
-
-                // Attach the click handler to all profession cards (which link to #floating-chat-btn)
-                document.querySelectorAll('.profession-card').forEach(card => {
-                    card.addEventListener('click', (e) => {
-                        e.preventDefault(); // Prevent default link behavior
-                        if (chatModal.classList.contains("hidden")) {
-                            toggleModal();
-                        }
-                    });
-                });
-
-                // Attach the click handler to the CTA button (which links to #floating-chat-btn)
-                document.querySelector('#join a').addEventListener('click', (e) => {
-                    e.preventDefault(); // Prevent default link behavior
-                    if (chatModal.classList.contains("hidden")) {
-                        toggleModal();
-                    }
-                });
-            }
         });
     </script>
 </body>
